@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doralice Confeitaria & Café • Alta Confeitaria Afetiva Brasileira</title>
+  <meta name="description" content="Alta confeitaria afetiva brasileira. Brigadeiros gourmet de pistache e cacau da Bahia, bolos em camadas, quindins artesanais e cafés especiais em São Paulo." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Fonts: Fraunces & Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN com configuração personalizada -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            maroon: {
+              DEFAULT: '#631626',
+              dark: '#470F1A',
+              light: '#7E1E32',
+            },
+            caramel: {
+              DEFAULT: '#C88544',
+              light: '#E8B985',
+              bg: '#FAF0E4',
+            },
+            cream: {
+              DEFAULT: '#FAF7F2',
+              alt: '#F3ECE2',
+            },
+            espresso: {
+              DEFAULT: '#241614',
+              muted: '#6E5E58',
+            }
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body class="bg-[#FAF7F2] text-[#241614] antialiased selection:bg-[#631626] selection:text-[#FAF7F2]">
+
+  <!-- ======================================================================
+       1. SLICK OVERLAY NAVIGATION (Madie Signature Transition)
+       ====================================================================== -->
+  <div id="nav-overlay" class="nav-overlay" role="dialog" aria-modal="true" aria-label="Menu principal de navegação">
+    <div class="nav-curtain w-full h-full bg-[#FAF7F2] text-[#241614] flex flex-col justify-between p-6 sm:p-12 md:p-16 overflow-y-auto">
+      
+      <!-- Overlay Top Bar -->
+      <div class="flex items-center justify-between pb-8 border-b border-[#ECE3D5]">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#631626] flex items-center justify-center text-[#FAF7F2] font-serif text-xl font-bold italic">
+            D
+          </div>
+          <div>
+            <span class="font-serif text-lg font-bold tracking-tight text-[#631626] block">Doralice</span>
+            <span class="text-[10px] uppercase font-mono tracking-widest text-[#8C7A72]">Confeitaria Afetiva</span>
+          </div>
+        </div>
+
+        <button 
+          id="close-menu-btn" 
+          type="button" 
+          class="w-12 h-12 rounded-full border border-[#D5C7B7] hover:border-[#631626] hover:bg-[#631626] hover:text-white flex items-center justify-center transition-all group"
+          aria-label="Fechar menu">
+          <i data-lucide="x" class="w-5 h-5 group-hover:rotate-90 transition-transform"></i>
+        </button>
+      </div>
+
+      <!-- Overlay Navigation Links (Large Editorial Font) -->
+      <div class="py-12 my-auto max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        <nav class="md:col-span-7 flex flex-col space-y-4 sm:space-y-6">
+          
+          <a href="#cardapio" class="overlay-nav-link overlay-anim-item group flex items-baseline gap-4 text-3xl sm:text-5xl md:text-6xl font-serif font-light text-[#241614] hover:text-[#631626] transition-colors">
+            <span class="font-mono text-xs sm:text-sm text-[#C88544] tracking-widest group-hover:translate-x-1 transition-transform">01</span>
+            <span class="group-hover:italic transition-all">O Cardápio de Doces</span>
+          </a>
+
+          <a href="#historia" class="overlay-nav-link overlay-anim-item group flex items-baseline gap-4 text-3xl sm:text-5xl md:text-6xl font-serif font-light text-[#241614] hover:text-[#631626] transition-colors">
+            <span class="font-mono text-xs sm:text-sm text-[#C88544] tracking-widest group-hover:translate-x-1 transition-transform">02</span>
+            <span class="group-hover:italic transition-all">Nossa História & Cacau</span>
+          </a>
+
+          <a href="#encomendas" class="overlay-nav-link overlay-anim-item group flex items-baseline gap-4 text-3xl sm:text-5xl md:text-6xl font-serif font-light text-[#241614] hover:text-[#631626] transition-colors">
+            <span class="font-mono text-xs sm:text-sm text-[#C88544] tracking-widest group-hover:translate-x-1 transition-transform">03</span>
+            <span class="group-hover:italic transition-all">Casamentos & Eventos</span>
+          </a>
+
+          <a href="#atelier" class="overlay-nav-link overlay-anim-item group flex items-baseline gap-4 text-3xl sm:text-5xl md:text-6xl font-serif font-light text-[#241614] hover:text-[#631626] transition-colors">
+            <span class="font-mono text-xs sm:text-sm text-[#C88544] tracking-widest group-hover:translate-x-1 transition-transform">04</span>
+            <span class="group-hover:italic transition-all">O Atelier nos Jardins</span>
+          </a>
+
+          <a href="#depoimentos" class="overlay-nav-link overlay-anim-item group flex items-baseline gap-4 text-3xl sm:text-5xl md:text-6xl font-serif font-light text-[#241614] hover:text-[#631626] transition-colors">
+            <span class="font-mono text-xs sm:text-sm text-[#C88544] tracking-widest group-hover:translate-x-1 transition-transform">05</span>
+            <span class="group-hover:italic transition-all">Experiências & Clientes</span>
+          </a>
+
+        </nav>
+
+        <!-- Overlay Side Info Card -->
+        <div class="md:col-span-5 bg-[#F3ECE2] p-8 rounded-3xl border border-[#ECE3D5] space-y-6 overlay-anim-item">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#8C7A72] block mb-2">Visite o Atelier</span>
+            <p class="font-serif text-lg font-bold text-[#241614] leading-snug">
+              Alameda Lorena, 1420<br>
+              Jardins • São Paulo — SP
+            </p>
+          </div>
+
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#8C7A72] block mb-2">Horário de Funcionamento</span>
+            <p class="text-sm text-[#5C4D47] leading-relaxed">
+              Terça a Sábado: 10h às 19h<br>
+              Domingos & Feriados: 11h às 18h<br>
+              <span class="text-xs text-[#8C7A72]">Segunda-feira: Atelier fechado para criação</span>
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-[#E0D4C5] flex flex-wrap gap-4 text-xs font-semibold text-[#631626]">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:underline flex items-center gap-1">
+              <i data-lucide="instagram" class="w-3.5 h-3.5"></i> Instagram
+            </a>
+            <a href="https://wa.me/5511999998888" target="_blank" rel="noopener" class="hover:underline flex items-center gap-1">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp
+            </a>
+            <a href="mailto:contato@doraliceconfeitaria.com.br" class="hover:underline flex items-center gap-1">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i> E-mail
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overlay Bottom Bar -->
+      <div class="pt-8 border-t border-[#ECE3D5] flex flex-col sm:flex-row items-center justify-between text-xs text-[#8C7A72] gap-4">
+        <span>© 2026 Doralice Confeitaria Afetiva Ltda.</span>
+        <span class="italic font-serif text-[#631626]">"Feito à mão, com memória e chocolate nobre."</span>
+        <span class="font-mono">São Paulo • Brasil</span>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       2. STICKY FLOATING HEADER
+       ====================================================================== -->
+  <header class="sticky top-0 z-40 glass-header px-4 sm:px-8 py-3.5 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo / Monogram -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-[#631626] group-hover:bg-[#470F1A] text-[#FAF7F2] flex items-center justify-center font-serif text-xl font-bold italic transition-colors shadow-sm">
+          D
+        </div>
+        <div>
+          <span class="font-serif text-xl font-bold tracking-tight text-[#241614] group-hover:text-[#631626] transition-colors leading-none block">
+            Doralice
+          </span>
+          <span class="text-[9px] uppercase font-mono tracking-widest text-[#8C7A72] block mt-0.5">
+            Confeitaria & Café
+          </span>
+        </div>
+      </a>
+
+      <!-- Center Status Pill & Desktop Links -->
+      <div class="hidden lg:flex items-center gap-6">
+        <div id="store-status-badge" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200">
+          <span id="store-status-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-green"></span>
+          <span id="store-status-text" class="text-xs font-semibold text-emerald-800">Atelier Aberto Agora</span>
+        </div>
+
+        <nav class="flex items-center gap-6 text-xs font-medium uppercase tracking-wider text-[#5C4D47]">
+          <a href="#cardapio" class="hover:text-[#631626] transition-colors">Cardápio</a>
+          <a href="#historia" class="hover:text-[#631626] transition-colors">História</a>
+          <a href="#encomendas" class="hover:text-[#631626] transition-colors">Eventos</a>
+          <a href="#atelier" class="hover:text-[#631626] transition-colors">O Atelier</a>
+        </nav>
+      </div>
+
+      <!-- Action Buttons (Cart + Menu Hamburger) -->
+      <div class="flex items-center gap-3">
+        
+        <!-- Cart Trigger Button -->
+        <button 
+          id="open-cart-btn" 
+          type="button" 
+          class="relative p-2.5 rounded-full border border-[#D5C7B7] hover:border-[#631626] bg-white hover:bg-[#FAF7F2] text-[#241614] transition-all flex items-center gap-2 shadow-sm"
+          aria-label="Abrir Sacola de Pedidos">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-[#631626]"></i>
+          <span class="hidden sm:inline text-xs font-semibold text-[#631626] pr-1">Sacola</span>
+          <span id="cart-count-badge" class="hidden absolute -top-1.5 -right-1.5 bg-[#631626] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md">
+            0
+          </span>
+        </button>
+
+        <!-- Direct WhatsApp CTA Button (Desktop) -->
+        <a 
+          href="https://wa.me/5511999998888?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20encomenda%20na%20Doralice%20Confeitaria." 
+          target="_blank" 
+          rel="noopener"
+          class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-[#631626] hover:bg-[#470F1A] text-[#FAF7F2] rounded-full text-xs font-semibold tracking-wide uppercase transition-all shadow-sm active:scale-95">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          <span>Pedir no WhatsApp</span>
+        </a>
+
+        <!-- Hamburger Menu Button (Madie Style Overlay Trigger) -->
+        <button 
+          id="open-menu-btn" 
+          type="button" 
+          class="p-2.5 rounded-full border border-[#D5C7B7] hover:border-[#631626] bg-[#FAF7F2] hover:bg-[#631626] hover:text-white text-[#241614] transition-all flex items-center justify-center"
+          aria-label="Abrir Menu de Navegação">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ======================================================================
+       3. HERO SECTION (Editorial, High-End & Atmospheric)
+       ====================================================================== -->
+  <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 px-4 sm:px-8 bg-grain overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Editorial Text Content -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF0E4] border border-[#E8B985]/60 text-[#C88544] text-xs font-mono font-semibold uppercase tracking-wider hero-title-line">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Alta Confeitaria Afetiva • Desde 2019</span>
+          </div>
+
+          <h1 class="hero-title-line font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-[#241614] leading-[1.08] tracking-tight">
+            Doçuras que resgatam memórias, criadas com <span class="italic font-normal text-[#631626]">afeto</span> e chocolate nobre.
+          </h1>
+
+          <p class="hero-title-line text-base sm:text-lg text-[#5C4D47] max-w-xl leading-relaxed font-light">
+            Unimos o aconchego das receitas de família à técnica minuciosa da pâtisserie contemporânea. Cada brigadeiro, bolo e café é feito à mão todos os dias com cacau agroecológico da Bahia e ingredientes puros.
+          </p>
+
+          <!-- CTAs & Trust Badges -->
+          <div class="hero-title-line pt-4 flex flex-wrap items-center gap-4">
+            <a 
+              href="#cardapio" 
+              class="px-8 py-4 bg-[#631626] hover:bg-[#470F1A] text-white rounded-full text-sm font-semibold tracking-wide uppercase transition-all shadow-md hover:shadow-lg active:scale-95 flex items-center gap-2">
+              <span>Explorar Cardápio</span>
+              <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+            </a>
+
+            <a 
+              href="#historia" 
+              class="px-8 py-4 bg-white hover:bg-[#F3ECE2] text-[#241614] border border-[#D5C7B7] rounded-full text-sm font-semibold tracking-wide uppercase transition-all active:scale-95 flex items-center gap-2">
+              <span>O Nosso Manifesto</span>
+            </a>
+          </div>
+
+          <!-- Proof mini-metrics -->
+          <div class="hero-title-line pt-8 border-t border-[#ECE3D5] grid grid-cols-3 gap-6 max-w-lg">
+            <div>
+              <span class="block font-serif text-2xl sm:text-3xl font-bold text-[#631626]">100%</span>
+              <span class="text-xs text-[#8C7A72]">Cacau fino de Ilhéus</span>
+            </div>
+            <div>
+              <span class="block font-serif text-2xl sm:text-3xl font-bold text-[#631626]">Diária</span>
+              <span class="text-xs text-[#8C7A72]">Produção artesanal</span>
+            </div>
+            <div>
+              <span class="block font-serif text-2xl sm:text-3xl font-bold text-[#631626]">15k+</span>
+              <span class="text-xs text-[#8C7A72]">Sorrisos adoçados</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Visual Showcase with Rotating Stamp Seal -->
+        <div class="lg:col-span-5 relative flex justify-center">
+          
+          <!-- Outer decorative backdrop card -->
+          <div class="relative w-full max-w-md hero-image-card">
+            
+            <!-- Main Hero Image Frame -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] bg-[#F3ECE2]">
+              <img 
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=85" 
+                alt="Bolo artesanal da Doralice Confeitaria" 
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                <span class="text-xs font-mono uppercase tracking-widest text-[#E8B985]">Destaque da Semana</span>
+                <h3 class="font-serif text-xl sm:text-2xl font-bold">Bolo de Rolo Pernambucano Artesanal</h3>
+                <p class="text-xs text-white/80 mt-1">Fatias milimétricas com pura goiabada cascão de Ponte Nova</p>
+              </div>
+            </div>
+
+            <!-- Rotating Brand Seal (Inspired by Madie's circular stamp) -->
+            <div class="hero-badge-stamp absolute -bottom-8 -left-8 sm:-bottom-10 sm:-left-10 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[#FAF7F2] p-1.5 shadow-xl border border-[#D5C7B7] z-20 flex items-center justify-center">
+              <div class="w-full h-full spin-slow">
+                <img src="assets/brand-seal.svg" alt="Selo Oficial Doralice Confeitaria" class="w-full h-full" />
+              </div>
+            </div>
+
+            <!-- Secondary floating miniature card -->
+            <div class="absolute -top-6 -right-6 sm:-top-8 sm:-right-8 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-[#ECE3D5] flex items-center gap-3 z-20 max-w-xs">
+              <div class="w-12 h-12 rounded-xl overflow-hidden bg-[#FAF7F2] flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=200&q=80" alt="Brigadeiro de Pistache" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-[#C88544] font-bold block">Mais Pedido</span>
+                <span class="font-serif text-xs font-bold text-[#241614] block">Brigadeiro de Pistache</span>
+                <span class="text-[11px] text-[#631626] font-semibold">R$ 7,50 un</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       4. INFINITE MARQUEE RIBBON (Continuous Editorial Tape)
+       ====================================================================== -->
+  <div class="py-4 bg-[#631626] text-[#FAF7F2] border-y border-[#470F1A] marquee-container">
+    <div class="marquee-content font-serif text-sm sm:text-base font-medium tracking-wider uppercase">
+      <span class="flex items-center gap-3">★ BRIGADEIRO DE PISTACHE SICILIANO & FLOR DE SAL</span>
+      <span class="flex items-center gap-3">✦ BOLO DE ROLO PERNAMBUCANO ARTESANAL</span>
+      <span class="flex items-center gap-3">★ QUINDIM DOURADO DA FAZENDA</span>
+      <span class="flex items-center gap-3">✦ CACAU 100% PURO DO SUL DA BAHIA</span>
+      <span class="flex items-center gap-3">★ CAFÉ ESPECIAL COADO NA MESA</span>
+      <span class="flex items-center gap-3">✦ PÃO DE MEL COM DOCE DE LEITE VIÇOSA</span>
+      <span class="flex items-center gap-3">★ TORTA MOUSSE CACAU 70% & CUPUAÇU</span>
+    </div>
+    <div class="marquee-content font-serif text-sm sm:text-base font-medium tracking-wider uppercase" aria-hidden="true">
+      <span class="flex items-center gap-3">★ BRIGADEIRO DE PISTACHE SICILIANO & FLOR DE SAL</span>
+      <span class="flex items-center gap-3">✦ BOLO DE ROLO PERNAMBUCANO ARTESANAL</span>
+      <span class="flex items-center gap-3">★ QUINDIM DOURADO DA FAZENDA</span>
+      <span class="flex items-center gap-3">✦ CACAU 100% PURO DO SUL DA BAHIA</span>
+      <span class="flex items-center gap-3">★ CAFÉ ESPECIAL COADO NA MESA</span>
+      <span class="flex items-center gap-3">✦ PÃO DE MEL COM DOCE DE LEITE VIÇOSA</span>
+      <span class="flex items-center gap-3">★ TORTA MOUSSE CACAU 70% & CUPUAÇU</span>
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       5. BRAND STORY & MANIFESTO (Biography Section inspired by Madie)
+       ====================================================================== -->
+  <section id="historia" class="py-24 px-4 sm:px-8 bg-[#F3ECE2]">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#C88544] font-semibold block mb-3">
+          O Manifesto do Afeto • Nossa Biografia
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-[#241614] leading-tight">
+          "Não vendemos apenas doces; entregamos um abraço embalado em fita de cetim."
+        </h2>
+      </div>
+
+      <!-- Editorial Grid: Story + Visual Pillars -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Story Text -->
+        <div class="lg:col-span-6 space-y-6 text-[#5C4D47] leading-relaxed text-base sm:text-lg">
+          <p>
+            A história da Doralice nasceu na cozinha ensolarada de Dona Doralice, no interior mineiro. Onde o tacho de cobre no fogão a lenha transformava leite fresco e cacau puro no brigadeiro que marcava as tardes de domingo de toda a vizinhança.
+          </p>
+          <p>
+            Anos mais tarde, decidimos honrar essa herança familiar levando a confeitaria brasileira a um novo patamar de excelência. Estudamos na França, desvendamos as técnicas da alta pâtisserie, mas nosso coração permaneceu enraizado no Brasil: na goiabada cascão de tacho, no coco fresco ralado à mão, no café especial colhido nas montanhas da Mantiqueira e no cacau fino de origem sustentável de Ilhéus.
+          </p>
+          <p class="font-serif italic text-xl text-[#631626] pt-2">
+            "Aqui não há atalhos, aromas artificiais ou conservantes. Há paciência, mãos dedicadas e o respeito sagrado pelo tempo que cada doce pede para nascer perfeito."
+          </p>
+        </div>
+
+        <!-- Right Visual Showcase / Pillars Cards -->
+        <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE3D5] shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-full bg-[#FAF0E4] text-[#C88544] flex items-center justify-center">
+              <i data-lucide="leaf" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-[#241614]">Cacau Agroecológico</h3>
+            <p class="text-xs text-[#5C4D47] leading-relaxed">
+              Trabalhamos em parceria direta com famílias produtoras de cacau fino de Ilhéus (BA), garantindo comércio justo e sabor inigualável.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE3D5] shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-full bg-[#FAF0E4] text-[#C88544] flex items-center justify-center">
+              <i data-lucide="flame" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-[#241614]">Feito Hoje, Sempre</h3>
+            <p class="text-xs text-[#5C4D47] leading-relaxed">
+              Nossa equipe acende as panelas às 6h da manhã. O que chega à sua mesa foi enrolado, fatiado e assado nas últimas horas.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE3D5] shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-full bg-[#FAF0E4] text-[#C88544] flex items-center justify-center">
+              <i data-lucide="gem" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-[#241614]">Ingredientes Nobres</h3>
+            <p class="text-xs text-[#5C4D47] leading-relaxed">
+              Manteiga de primeira qualidade, favas puras de baunilha, pistache da Sicília e doce de leite artesanal de Viçosa.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE3D5] shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-full bg-[#FAF0E4] text-[#C88544] flex items-center justify-center">
+              <i data-lucide="gift" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-[#241614]">Apresentação de Luxo</h3>
+            <p class="text-xs text-[#5C4D47] leading-relaxed">
+              Caixas bordeaux rígidas com estampagem dourada, fitas de cetim e cartões caligráficos escritos à mão.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       6. INTERACTIVE PRODUCT CATALOG (Cardápio do Atelier)
+       ====================================================================== -->
+  <section id="cardapio" class="py-24 px-4 sm:px-8 bg-[#FAF7F2]">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Catalog Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#C88544] font-semibold block mb-2">
+            Coleção Gastronômica • Feito Diariamente
+          </span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-[#241614]">
+            O Cardápio de Delícias
+          </h2>
+        </div>
+
+        <!-- Live Search Bar -->
+        <div class="relative w-full md:w-80">
+          <input 
+            id="product-search" 
+            type="text" 
+            placeholder="Buscar por sabor ou doce..." 
+            class="w-full px-4 py-2.5 pl-10 rounded-full border border-[#D5C7B7] bg-white focus:outline-none focus:border-[#631626] text-xs font-sans placeholder-[#9C8B82] shadow-sm transition-all"
+          />
+          <i data-lucide="search" class="w-4 h-4 text-[#8C7A72] absolute left-3.5 top-3"></i>
+        </div>
+      </div>
+
+      <!-- Filter Tabs Bar (Horizontal scrolling on mobile) -->
+      <div class="overflow-x-auto pb-4 mb-10 no-scrollbar">
+        <div id="category-tabs" class="flex items-center gap-2.5 min-w-max">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- Empty State (When no search match) -->
+      <div id="products-empty" class="hidden text-center py-20 bg-white rounded-3xl border border-[#ECE3D5] p-8 max-w-lg mx-auto">
+        <div class="w-16 h-16 rounded-full bg-[#FAF0E4] text-[#C88544] flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="cookie" class="w-8 h-8"></i>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-[#241614] mb-2">Nenhum doce encontrado</h3>
+        <p class="text-sm text-[#5C4D47] mb-6">Não localizamos itens com esse termo. Tente buscar por "pistache", "cacau", "cenoura" ou "quindim".</p>
+        <button 
+          type="button" 
+          onclick="document.getElementById('product-search').value = ''; window.doralice.renderProducts();"
+          class="px-6 py-2.5 rounded-full bg-[#631626] text-white text-xs font-semibold uppercase tracking-wider">
+          Limpar Busca
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       7. CATERING, WEDDINGS & SWEET TABLE CALCULATOR
+       ====================================================================== -->
+  <section id="encomendas" class="py-24 px-4 sm:px-8 bg-[#241614] text-[#FAF7F2] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Explanatory Text -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#E8B985] text-xs font-mono uppercase tracking-wider font-semibold">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+            <span>Mesas de Alta Confeitaria</span>
+          </div>
+
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
+            Casamentos, Batizados & Eventos Corporativos.
+          </h2>
+
+          <p class="text-white/70 text-base leading-relaxed font-light">
+            A mesa de doces é o cenário mais fotografado e aguardado de qualquer celebração. Criamos composições personalizadas com forminhas de tecido finas, caixas monogramadas e sabores exclusivos para encantar seus convidados.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full bg-[#631626] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4 text-white"></i>
+              </div>
+              <p class="text-sm text-white/80"><strong>Degustação personalizada:</strong> Enviamos uma caixa de amostras com 12 sabores até sua casa.</p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full bg-[#631626] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4 text-white"></i>
+              </div>
+              <p class="text-sm text-white/80"><strong>Montagem no local:</strong> Nossa equipe cuida da montagem cuidadosa da mesa no seu buffet em SP.</p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full bg-[#631626] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4 text-white"></i>
+              </div>
+              <p class="text-sm text-white/80"><strong>Lembrancinhas refinadas:</strong> Mini caixas individuais de brigadeiro com laço de cetim.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Interactive Simulator Card -->
+        <div class="lg:col-span-6 bg-white/5 backdrop-blur-lg border border-white/10 p-8 sm:p-10 rounded-3xl space-y-6">
+          <div class="border-b border-white/10 pb-4">
+            <h3 class="font-serif text-2xl font-bold text-white">Simulador de Mesa de Doces</h3>
+            <p class="text-xs text-white/60 mt-1">Descubra a quantidade ideal de doces para sua festa</p>
+          </div>
+
+          <!-- Event Type -->
+          <div>
+            <label for="event-type" class="block text-xs font-mono uppercase tracking-wider text-[#E8B985] mb-2 font-semibold">
+              Tipo de Celebração
+            </label>
+            <select id="event-type" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#E8B985]">
+              <option value="casamento" class="text-black">Casamento Clássico (5 a 6 doces/pessoa)</option>
+              <option value="aniversario" class="text-black">Aniversário & Debutante (4 doces/pessoa)</option>
+              <option value="corporativo" class="text-black">Evento Corporativo / VIP (3 a 4 doces/pessoa)</option>
+              <option value="batizado" class="text-black">Batizado & Chá de Bebê (4 doces/pessoa)</option>
+            </select>
+          </div>
+
+          <!-- Guests Slider -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label for="event-guests" class="text-xs font-mono uppercase tracking-wider text-[#E8B985] font-semibold">
+                Número de Convidados
+              </label>
+              <span id="event-guests-val" class="font-mono text-sm font-bold text-white bg-white/10 px-3 py-1 rounded-full">
+                80 convidados
+              </span>
+            </div>
+            <input 
+              id="event-guests" 
+              type="range" 
+              min="20" 
+              max="400" 
+              step="10" 
+              value="80" 
+              class="w-full accent-[#C88544] cursor-pointer"
+            />
+          </div>
+
+          <!-- Dynamic Calculations Result Box -->
+          <div class="p-5 rounded-2xl bg-[#631626]/60 border border-[#631626] grid grid-cols-2 gap-4">
+            <div>
+              <span class="text-[11px] uppercase tracking-wider text-white/70 block">Doces Recomendados</span>
+              <span id="calc-total-sweets" class="font-serif text-2xl font-bold text-white">400 doces</span>
+            </div>
+            <div>
+              <span class="text-[11px] uppercase tracking-wider text-white/70 block">Variedade Ideal</span>
+              <span id="calc-varieties" class="font-serif text-lg font-bold text-[#E8B985]">6 a 8 sabores</span>
+            </div>
+            <div class="col-span-2 pt-2 border-t border-white/10 flex items-baseline justify-between">
+              <span class="text-xs text-white/70">Investimento estimado:</span>
+              <span id="calc-estimate" class="font-mono text-lg font-bold text-white">Aprox. R$ 2.800,00</span>
+            </div>
+          </div>
+
+          <!-- Action Button to WhatsApp -->
+          <button 
+            id="event-quote-whatsapp" 
+            type="button" 
+            class="w-full py-4 bg-[#C88544] hover:bg-[#E8B985] text-[#241614] rounded-full font-semibold text-xs uppercase tracking-wider transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Solicitar Degustação & Orçamento no WhatsApp</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       8. THE ATELIER & CAFETERIA (Visite o Atelier nos Jardins)
+       ====================================================================== -->
+  <section id="atelier" class="py-24 px-4 sm:px-8 bg-[#FAF7F2]">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Photos Gallery / Atelier View -->
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div class="rounded-3xl overflow-hidden shadow-md aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Fachada acolhedora do Atelier Doralice" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="rounded-3xl overflow-hidden shadow-md aspect-[3/4] mt-8">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Confeitaria artesanal nos bastidores" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          </div>
+        </div>
+
+        <!-- Right Store Information Card -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-mono uppercase tracking-widest text-[#C88544] font-semibold block">
+            Cafeteria & Atelier Físico • Jardins, SP
+          </span>
+
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-[#241614] leading-tight">
+            Venha sentir o aroma do bolo recém-saído do forno.
+          </h2>
+
+          <p class="text-[#5C4D47] text-base leading-relaxed">
+            Nosso espaço foi desenhado para ser uma pausa poética na agitação paulistana. Mesas ao ar livre sob a sombra das árvores dos Jardins, xícaras de cerâmica feitas por ceramistas locais e vitrine com brigadeiros e fatias do dia.
+          </p>
+
+          <div class="bg-white p-6 rounded-2xl border border-[#ECE3D5] space-y-4">
+            <div class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="w-5 h-5 text-[#631626] flex-shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="font-serif text-base text-[#241614] block">Alameda Lorena, 1420 — Jardins</strong>
+                <span class="text-xs text-[#8C7A72]">São Paulo - SP • CEP 01424-001 (Próximo à Rua Oscar Freire)</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <i data-lucide="clock" class="w-5 h-5 text-[#631626] flex-shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="font-serif text-base text-[#241614] block">Horário do Café & Balcão</strong>
+                <span class="text-xs text-[#5C4D47] block">Terça a Sábado: 10h às 19h | Domingo: 11h às 18h</span>
+                <span class="text-[11px] text-[#8C7A72] italic">Segunda-feira: Fechado para produção interna</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <span class="inline-flex items-center gap-1.5 text-xs text-[#5C4D47] bg-[#FAF7F2] px-3 py-1 rounded-full border border-[#ECE3D5]">
+                <i data-lucide="wifi" class="w-3.5 h-3.5 text-[#C88544]"></i> Wi-Fi Rápido
+              </span>
+              <span class="inline-flex items-center gap-1.5 text-xs text-[#5C4D47] bg-[#FAF7F2] px-3 py-1 rounded-full border border-[#ECE3D5]">
+                <i data-lucide="dog" class="w-3.5 h-3.5 text-[#C88544]"></i> Pet Friendly
+              </span>
+              <span class="inline-flex items-center gap-1.5 text-xs text-[#5C4D47] bg-[#FAF7F2] px-3 py-1 rounded-full border border-[#ECE3D5]">
+                <i data-lucide="car" class="w-3.5 h-3.5 text-[#C88544]"></i> Estacionamento Próximo
+              </span>
+            </div>
+          </div>
+
+          <!-- GPS / Map Buttons -->
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a 
+              href="https://maps.google.com/?q=Alameda+Lorena+1420+Jardins+Sao+Paulo" 
+              target="_blank" 
+              rel="noopener"
+              class="px-5 py-3 rounded-full bg-[#631626] hover:bg-[#470F1A] text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2 transition-all shadow-sm">
+              <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+              <span>Abrir no Google Maps</span>
+            </a>
+
+            <a 
+              href="https://waze.com/ul?q=Alameda%20Lorena%201420%20Sao%20Paulo" 
+              target="_blank" 
+              rel="noopener"
+              class="px-5 py-3 rounded-full bg-white hover:bg-[#F3ECE2] text-[#241614] border border-[#D5C7B7] text-xs font-semibold uppercase tracking-wider flex items-center gap-2 transition-all">
+              <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+              <span>Abrir no Waze</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       9. TESTIMONIALS & CLIENT LOVE (Depoimentos)
+       ====================================================================== -->
+  <section id="depoimentos" class="py-24 px-4 sm:px-8 bg-[#F3ECE2]">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#C88544] font-semibold block mb-2">
+          Amor Compartilhado
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#241614]">
+          O que dizem os apaixonados por nossas criações
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Review 1 -->
+        <div class="bg-white p-8 rounded-3xl border border-[#ECE3D5] shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-[#C88544] mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-[#5C4D47] leading-relaxed italic mb-6">
+              "A mesa de doces da Doralice foi o ponto alto da nossa festa de casamento. Os convidados até hoje comentam sobre o brigadeiro de pistache e os mini quindins. O atendimento e a delicadeza foram impecáveis!"
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#F5EFE6]">
+            <strong class="font-serif text-sm font-bold text-[#241614] block">Camila Mendonça & Rafael</strong>
+            <span class="text-xs text-[#8C7A72]">Casamento no Espaço Alves Guimarães</span>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white p-8 rounded-3xl border border-[#ECE3D5] shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-[#C88544] mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-[#5C4D47] leading-relaxed italic mb-6">
+              "O bolo de cenoura com a calda vulcão morna lembra as tardes na fazenda da minha avó, mas com uma sofisticação de pâtisserie parisiense. O ambiente no Jardins é encantador e o café filtrado é maravilhoso."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#F5EFE6]">
+            <strong class="font-serif text-sm font-bold text-[#241614] block">Dra. Beatriz Vasconcellos</strong>
+            <span class="text-xs text-[#8C7A72]">Cliente frequente do Atelier</span>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-white p-8 rounded-3xl border border-[#ECE3D5] shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-[#C88544] mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-[#5C4D47] leading-relaxed italic mb-6">
+              "Encomendamos 120 caixas de presente personalizadas para nossos clientes VIP. O resultado foi unânime: apresentação de alto luxo com fita de cetim e sabor inesquecível. Parceria garantida para os próximos anos."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#F5EFE6]">
+            <strong class="font-serif text-sm font-bold text-[#241614] block">Lucas Brandão</strong>
+            <span class="text-xs text-[#8C7A72]">Diretor Corporativo</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       10. NEWSLETTER & VIP CLUB (10% OFF COUPON)
+       ====================================================================== -->
+  <section class="py-20 px-4 sm:px-8 bg-[#FAF7F2]">
+    <div class="max-w-4xl mx-auto bg-[#631626] text-[#FAF7F2] rounded-3xl p-8 sm:p-14 text-center shadow-xl relative overflow-hidden">
+      
+      <div class="relative z-10 max-w-xl mx-auto space-y-4">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#E8B985] font-semibold block">
+          Clube de Amigos da Doralice
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold">
+          Receba receitas secretas e ganhe 10% na primeira encomenda.
+        </h2>
+        <p class="text-white/80 text-sm leading-relaxed">
+          Cadastre seu e-mail para receber nossos lançamentos sazonais, edições limitadas de Páscoa e Natal e um cupom imediato para saborear.
+        </p>
+
+        <!-- Form -->
+        <form id="newsletter-form" class="pt-4 flex flex-col sm:flex-row gap-3">
+          <input 
+            id="newsletter-email" 
+            type="email" 
+            required 
+            placeholder="Seu melhor e-mail..." 
+            class="flex-1 px-5 py-3.5 rounded-full bg-white text-[#241614] placeholder-[#8C7A72] text-sm focus:outline-none focus:ring-2 focus:ring-[#E8B985]"
+          />
+          <button 
+            type="submit" 
+            class="px-8 py-3.5 bg-[#C88544] hover:bg-[#E8B985] text-[#241614] rounded-full font-semibold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95">
+            Quero Meu Cupom
+          </button>
+        </form>
+
+        <!-- Success Coupon Feedback -->
+        <div id="newsletter-success" class="hidden pt-4 p-4 bg-white/10 rounded-2xl border border-white/20">
+          <p class="text-sm font-semibold text-[#E8B985] mb-2">🎉 Parabéns! Use o cupom abaixo no seu pedido:</p>
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white text-[#631626] rounded-full font-mono font-bold text-sm cursor-pointer shadow-sm" id="coupon-code" title="Clique para copiar">
+            <span>DORALICE10</span>
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          </div>
+          <span class="text-[11px] text-white/70 block mt-1">Válido para retirada ou delivery em São Paulo</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================================
+       11. GRAND FOOTER (Typographic & Portfolio Ready)
+       ====================================================================== -->
+  <footer class="bg-[#241614] text-[#FAF7F2] pt-20 pb-12 px-4 sm:px-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <!-- Top Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#631626] text-[#FAF7F2] flex items-center justify-center font-serif text-xl font-bold italic">
+              D
+            </div>
+            <span class="font-serif text-2xl font-bold tracking-tight">Doralice Confeitaria</span>
+          </div>
+          <p class="text-sm text-white/70 leading-relaxed max-w-sm">
+            Alta confeitaria afetiva brasileira. Resgatando as raízes do nosso país com cacau fino de Ilhéus, fava de baunilha e tradição familiar.
+          </p>
+          <div class="pt-2 flex items-center gap-3 text-white/80">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#631626] flex items-center justify-center transition-colors">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="https://wa.me/5511999998888" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#631626] flex items-center justify-center transition-colors">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </a>
+            <a href="mailto:contato@doraliceconfeitaria.com.br" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#631626] flex items-center justify-center transition-colors">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-mono uppercase tracking-widest text-[#E8B985] font-semibold">Navegação Rápida</h4>
+          <ul class="space-y-2 text-sm text-white/70">
+            <li><a href="#cardapio" class="hover:text-white transition-colors">Cardápio Completo</a></li>
+            <li><a href="#historia" class="hover:text-white transition-colors">História & Filosofia</a></li>
+            <li><a href="#encomendas" class="hover:text-white transition-colors">Casamentos & Encomendas</a></li>
+            <li><a href="#atelier" class="hover:text-white transition-colors">O Atelier dos Jardins</a></li>
+            <li><a href="#depoimentos" class="hover:text-white transition-colors">Avaliações de Clientes</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Quick Contacts & Pix -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs font-mono uppercase tracking-widest text-[#E8B985] font-semibold">Atendimento & Pix</h4>
+          <p class="text-sm text-white/70">
+            Pedidos para o mesmo dia e encomendas com até 48h de antecedência.
+          </p>
+          <div class="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-2">
+            <span class="text-[11px] font-mono text-white/60 block">Chave Pix Oficial:</span>
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-[#E8B985] select-all">contato@doraliceconfeitaria.com.br</span>
+              <button 
+                type="button" 
+                onclick="window.doralice.copyPixKey()" 
+                class="text-[11px] bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-md text-white transition-colors">
+                Copiar
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Giant Brand Typography (Inspired by luxury fashion & Madie) -->
+      <div class="border-t border-b border-white/10 py-8 text-center select-none overflow-hidden">
+        <span class="font-serif text-5xl sm:text-8xl md:text-9xl font-bold tracking-widest text-white/10 uppercase block">
+          DORALICE
+        </span>
+      </div>
+
+      <!-- Portfolio & Developer Attribution Tag -->
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-4 pt-4">
+        <span>© 2026 Doralice Confeitaria & Café • Todos os direitos reservados.</span>
+        
+        <!-- Editable badge for user portfolio -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70">
+          <span>Design & Desenvolvimento:</span>
+          <strong class="text-[#E8B985]">Seu Nome / Agência</strong>
+          <span>• Modelo para Portfólio</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ======================================================================
+       12. INTERACTIVE SHOPPING BAG DRAWER (Sacola de Doces)
+       ====================================================================== -->
+  <div id="cart-backdrop" class="drawer-backdrop fixed inset-0 bg-black/50 backdrop-blur-sm z-50"></div>
+  
+  <aside id="cart-drawer" class="cart-drawer fixed top-0 right-0 w-full max-w-md h-full bg-[#FAF7F2] z-50 shadow-2xl flex flex-col justify-between" aria-label="Sacola de Pedidos">
+    
+    <!-- Drawer Header -->
+    <div class="p-6 border-b border-[#ECE3D5] flex items-center justify-between bg-white">
+      <div class="flex items-center gap-2">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-[#631626]"></i>
+        <h3 class="font-serif text-xl font-bold text-[#241614]">Sua Sacola</h3>
+      </div>
+      <button id="close-cart-btn" type="button" class="p-2 rounded-full hover:bg-[#FAF7F2] text-[#8C7A72] hover:text-[#241614] transition-colors" aria-label="Fechar Sacola">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Drawer Body (Items list) -->
+    <div class="flex-1 overflow-y-auto p-6 space-y-4">
+      
+      <!-- Empty State -->
+      <div id="cart-empty-state" class="text-center py-16 space-y-4">
+        <div class="w-16 h-16 rounded-full bg-[#FAF0E4] text-[#C88544] flex items-center justify-center mx-auto">
+          <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+        </div>
+        <h4 class="font-serif text-lg font-bold text-[#241614]">Sua sacola está vazia</h4>
+        <p class="text-xs text-[#5C4D47] max-w-xs mx-auto">
+          Que tal adicionar um brigadeiro de pistache ou uma fatia do nosso bolo de cenoura com calda vulcão?
+        </p>
+        <a 
+          href="#cardapio" 
+          onclick="document.getElementById('close-cart-btn').click()"
+          class="inline-block px-6 py-2.5 bg-[#631626] text-white rounded-full text-xs font-semibold uppercase tracking-wider">
+          Explorar Cardápio
+        </a>
+      </div>
+
+      <!-- Items Container -->
+      <div id="cart-items-container" class="space-y-3">
+        <!-- Injected via JavaScript -->
+      </div>
+
+    </div>
+
+    <!-- Drawer Footer (Calculations, Delivery & WhatsApp CTA) -->
+    <div id="cart-footer-content" class="p-6 border-t border-[#ECE3D5] bg-white space-y-4">
+      
+      <!-- Delivery Type Option -->
+      <div class="space-y-2">
+        <span class="text-xs font-mono uppercase tracking-wider text-[#8C7A72] font-semibold block">Forma de Recebimento</span>
+        <div class="grid grid-cols-2 gap-2">
+          <label class="flex items-center gap-2 p-2.5 rounded-xl border border-[#ECE3D5] cursor-pointer hover:bg-[#FAF7F2] text-xs">
+            <input type="radio" name="delivery-type" value="pickup" checked class="accent-[#631626]" />
+            <div>
+              <strong class="block text-[#241614]">Retirada</strong>
+              <span class="text-[10px] text-emerald-700 font-semibold">Grátis (Jardins)</span>
+            </div>
+          </label>
+
+          <label class="flex items-center gap-2 p-2.5 rounded-xl border border-[#ECE3D5] cursor-pointer hover:bg-[#FAF7F2] text-xs">
+            <input type="radio" name="delivery-type" value="delivery" class="accent-[#631626]" />
+            <div>
+              <strong class="block text-[#241614]">Delivery SP</strong>
+              <span class="text-[10px] text-[#631626] font-semibold">R$ 15,00 taxa fixa</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Address Input (if delivery) -->
+      <div id="delivery-address-wrap" class="hidden">
+        <label for="customer-address" class="text-xs font-mono uppercase tracking-wider text-[#8C7A72] font-semibold block mb-1">
+          Endereço de Entrega (Rua, Número, Bairro)
+        </label>
+        <input 
+          id="customer-address" 
+          type="text" 
+          placeholder="Ex: Rua Oscar Freire, 500, Apto 42" 
+          class="w-full px-3 py-2 text-xs rounded-lg border border-[#D5C7B7] focus:outline-none focus:border-[#631626]"
+        />
+      </div>
+
+      <!-- Gift Card Option -->
+      <div class="pt-2 border-t border-[#F5EFE6]">
+        <label class="flex items-center gap-2 text-xs text-[#241614] cursor-pointer">
+          <input id="gift-card-toggle" type="checkbox" class="accent-[#631626] rounded" />
+          <span>🎁 É para presente? Adicionar cartão caligráfico</span>
+        </label>
+        <div id="gift-card-msg-wrap" class="hidden mt-2">
+          <textarea 
+            id="gift-card-text" 
+            rows="2" 
+            placeholder="Escreva a mensagem a ser escrita à mão no cartão..." 
+            class="w-full p-2.5 text-xs rounded-lg border border-[#D5C7B7] focus:outline-none focus:border-[#631626]"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Customer Name & Phone -->
+      <div class="grid grid-cols-2 gap-2 pt-2 border-t border-[#F5EFE6]">
+        <div>
+          <label for="customer-name" class="text-[10px] font-mono uppercase tracking-wider text-[#8C7A72] block">Seu Nome</label>
+          <input id="customer-name" type="text" placeholder="Ex: Maria Clara" class="w-full p-2 text-xs rounded-lg border border-[#D5C7B7] focus:outline-none focus:border-[#631626]" />
+        </div>
+        <div>
+          <label for="customer-phone" class="text-[10px] font-mono uppercase tracking-wider text-[#8C7A72] block">Seu WhatsApp</label>
+          <input id="customer-phone" type="tel" placeholder="Ex: (11) 98765-4321" class="w-full p-2 text-xs rounded-lg border border-[#D5C7B7] focus:outline-none focus:border-[#631626]" />
+        </div>
+      </div>
+
+      <!-- Totals -->
+      <div class="pt-2 border-t border-[#ECE3D5] space-y-1.5 text-xs">
+        <div class="flex justify-between text-[#5C4D47]">
+          <span>Subtotal:</span>
+          <span id="cart-subtotal" class="font-mono font-semibold">R$ 0,00</span>
+        </div>
+        <div class="flex justify-between text-[#5C4D47]">
+          <span>Taxa de Entrega:</span>
+          <span id="cart-delivery-fee" class="font-mono font-semibold">Grátis</span>
+        </div>
+        <div class="flex justify-between text-[#241614] text-base font-bold pt-2 border-t border-[#ECE3D5]">
+          <span>Total Geral:</span>
+          <span id="cart-total" class="font-serif text-xl text-[#631626]">R$ 0,00</span>
+        </div>
+      </div>
+
+      <!-- Checkout WhatsApp Button -->
+      <button 
+        id="checkout-whatsapp-btn" 
+        type="button" 
+        class="w-full py-4 bg-[#631626] hover:bg-[#470F1A] text-white rounded-full font-semibold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span>Enviar Pedido pelo WhatsApp 📲</span>
+      </button>
+
+      <span class="text-[10px] text-[#8C7A72] text-center block">
+        O pedido será formatado e enviado diretamente para nosso atendimento.
+      </span>
+
+    </div>
+  </aside>
+
+
+  <!-- ======================================================================
+       13. QUICK VIEW POPUP MODAL
+       ====================================================================== -->
+  <div id="quickview-modal" class="modal-backdrop fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="modal-content bg-white w-full max-w-3xl rounded-3xl p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+      <button 
+        type="button" 
+        onclick="window.doralice.closeQuickView()" 
+        class="absolute top-4 right-4 p-2 rounded-full bg-[#FAF7F2] hover:bg-[#ECE3D5] text-[#241614] transition-colors"
+        aria-label="Fechar Detalhes">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div id="quickview-body">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       14. TOAST NOTIFICATIONS CONTAINER
+       ====================================================================== -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Main JavaScript App (Standalone Bundle) -->
+  <script src="scripts/bundle.js"></script>
+</body>
+</html>
+
